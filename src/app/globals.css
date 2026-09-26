@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ==========================================================
+   DESIGN TOKENS — "Signal"
+   Built directly from the wordmark: navy, brass, and white.
+   Flat, quiet, minimal — the mark is the only ornament.
+========================================================== */
+:root {
+  --color-page: #FFFFFF;
+  --color-surface: #F6F6F8;
+  --color-accent: #0B1240;
+  --color-accent-deep: #060A28;
+  --color-brass: #B8874A;
+  --color-brass-light: #F3E9D6;
+  --color-ink: #12152B;
+  --color-muted: #5B5F73;
+  --color-border: rgba(11, 18, 64, 0.12);
+
+  --font-serif: var(--font-display, Georgia, "Times New Roman", serif);
+  --font-sans: var(--font-text, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif);
+}
+
+@theme inline {
+  --color-page: var(--color-page);
+  --color-surface: var(--color-surface);
+  --color-accent: var(--color-accent);
+  --color-accent-deep: var(--color-accent-deep);
+  --color-brass: var(--color-brass);
+  --color-brass-light: var(--color-brass-light);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.rule {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Small section labels — sentence case, brass, no tracked caps */
+.label-tag {
+  color: var(--color-brass);
+  font-weight: 600;
+}
+
+.label-tag-inverse {
+  color: var(--color-brass);
+  font-weight: 600;
+}
+
+/* The wordmark's corner-bracket, reused once as the site's one signature mark */
+.corner-mark {
+  position: relative;
+  display: inline-block;
+  padding-left: 0.6em;
+  border-left: 2px solid var(--color-brass);
+}
+
+::selection {
+  background-color: var(--color-brass-light);
+  color: var(--color-accent-deep);
+}
+
+.prose :where(a):not(:where([class~="not-prose"] *)) {
+  color: var(--color-accent);
+}
+
+/* ==========================================================
+   MOTION — marquee ticker + shared underline hover
+========================================================== */
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-mask:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Animated underline used by the primary nav */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1.5px;
+  width: 0%;
+  background-color: var(--color-brass);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
