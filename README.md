@@ -91,7 +91,7 @@ Set `RESEND_API_KEY` as an environment variable in the Vercel project settings. 
 - **Typography**: serif for headlines (`Georgia` stack — swap for a licensed serif like `Freight Text` or `Tiempos` when available), system sans for body copy.
 - **No bento grids, no card-heavy homepage.** Sections use editorial layouts: numbered lists, horizontal rules, alternating two-column grids, large pull quotes.
 
-## What's Intentionally Not Built
+## What's Intentionally Not Built 
 
 Per the project brief, this does **not** include:
 - A database or CMS
