@@ -53,7 +53,7 @@ export function Hero({ eyebrow, headline, supporting, primaryCta, secondaryCta }
         style={{ background: "radial-gradient(circle, #3D4FA8 0%, transparent 70%)", opacity: 0.45 }}
       />
 
-      <Container className="relative py-28 sm:py-36 lg:py-44">
+      <Container className="relative flex min-h-[calc(100svh-4.25rem)] items-center py-14 sm:min-h-[calc(100svh-5.25rem)] sm:py-16">
         <div className="max-w-4xl">
           {eyebrow && (
             <motion.div
@@ -75,7 +75,7 @@ export function Hero({ eyebrow, headline, supporting, primaryCta, secondaryCta }
             initial="hidden"
             animate="show"
             variants={headlineContainer}
-            className="text-balance font-serif text-5xl font-semibold leading-[1.04] tracking-tight sm:text-7xl lg:text-[5.5rem]"
+            className="text-balance font-serif text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl"
           >
             {words.map((word, i) => (
               <motion.span key={i} variants={wordVariant} className="mr-[0.22em] inline-block">
@@ -103,7 +103,7 @@ export function Hero({ eyebrow, headline, supporting, primaryCta, secondaryCta }
               className="mt-11 flex flex-wrap items-center gap-4"
             >
               {primaryCta && (
-                <Button href={primaryCta.href} variant="primary">
+                <Button href={primaryCta.href} variant="primary" inverse>
                   {primaryCta.label}
                 </Button>
               )}

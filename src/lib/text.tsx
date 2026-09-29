@@ -4,7 +4,7 @@ export function boldPhrase(text: string, phrase: string) {
   return (
     <>
       {text.slice(0, i)}
-      <strong className="font-bold text-[var(--color-ink)]">{phrase}</strong>
+      <strong className="font-bold text-current">{phrase}</strong>
       {text.slice(i + phrase.length)}
     </>
   );
